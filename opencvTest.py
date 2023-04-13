@@ -116,19 +116,44 @@
 
 
 
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# # 데이터 준비
+# x = np.random.normal(0, 1, 1000)
+
+# # 그래프 생성
+# plt.hist(x, bins=20, density=True, alpha=0.7, color='skyblue')
+
+# # 그래프 옵션 설정
+# plt.title('Normal Distribution')
+# plt.xlabel('X-axis')
+# plt.ylabel('Y-axis')
+
+# # 그래프 표시
+# plt.show()
+
+
+
+
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 데이터 준비
-x = np.random.normal(0, 1, 1000)
+# 데이터 생성
+data = np.random.randn(1000)
 
-# 그래프 생성
-plt.hist(x, bins=20, density=True, alpha=0.7, color='skyblue')
+# 히스토그램 생성
+n, bins, patches = plt.hist(data, bins=30)
+
+# 각 막대에 대한 레이블 추가
+for i in range(len(patches)):
+    plt.text(x=bins[i]+0.05, y=n[i]+5, s=f'{int(n[i])}',
+             fontsize=10, color='black', ha='left', va='bottom')
 
 # 그래프 옵션 설정
-plt.title('Normal Distribution')
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
+plt.title('Histogram of Data')
+plt.xlabel('Data')
+plt.ylabel('Frequency')
 
 # 그래프 표시
 plt.show()
